@@ -41,20 +41,20 @@ export const Dashboard: React.FC<DashboardProps> = ({ onLogout }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 animate-fade-in">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b">
+      <header className="backdrop-blur-glass shadow-elegant border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <QrCode className="w-8 h-8 text-blue-600 mr-3" />
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <QrCode className="w-8 h-8 text-blue-600 mr-3 animate-pulse-custom" />
+              <h1 className="text-2xl font-bold text-gradient">
                 EventApp
               </h1>
             </div>
             <button
               onClick={onLogout}
-              className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+              className="flex items-center text-gray-600 hover:text-gray-900 state-transition hover-scale"
             >
               <LogOut className="w-5 h-5 mr-2" />
               Sair
@@ -65,16 +65,16 @@ export const Dashboard: React.FC<DashboardProps> = ({ onLogout }) => {
 
       <div className="flex">
         {/* Sidebar */}
-        <nav className="w-64 bg-white shadow-sm h-screen sticky top-0">
+        <nav className="w-64 backdrop-blur-glass shadow-elegant h-screen sticky top-0">
           <div className="p-4">
             <ul className="space-y-2">
               {navItems.map(item => (
                 <li key={item.id}>
                   <button
                     onClick={() => setActiveView(item.id as any)}
-                    className={`w-full flex items-center px-4 py-3 rounded-lg transition-colors text-left ${
+                    className={`nav-item w-full flex items-center px-4 py-3 text-left state-transition ${
                       activeView === item.id
-                        ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-600'
+                        ? 'bg-blue-50 text-blue-700 active'
                         : 'text-gray-700 hover:bg-gray-50'
                     }`}
                   >

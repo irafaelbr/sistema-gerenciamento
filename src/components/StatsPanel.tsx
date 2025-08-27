@@ -59,21 +59,21 @@ export const StatsPanel: React.FC<StatsPanelProps> = ({ database }) => {
     : '0';
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 animate-fade-in">
       <div>
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Dashboard</h1>
+        <h1 className="text-3xl font-bold text-gradient mb-2">Dashboard</h1>
         <p className="text-gray-600">Visão geral do sistema de eventos</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {statCards.map((card, index) => (
-          <div key={index} className={`${card.bgColor} rounded-xl p-6 border border-gray-200`}>
+          <div key={index} className={`${card.bgColor} rounded-xl p-6 border border-gray-200 hover-lift animate-slide-in`} style={{animationDelay: `${index * 0.1}s`}}>
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600 mb-1">{card.title}</p>
                 <p className="text-3xl font-bold text-gray-900">{card.value}</p>
               </div>
-              <div className={`p-3 rounded-lg bg-gradient-to-br ${card.color}`}>
+              <div className={`p-3 rounded-lg bg-gradient-to-br ${card.color} hover-scale`}>
                 <card.icon className="w-6 h-6 text-white" />
               </div>
             </div>
@@ -81,15 +81,15 @@ export const StatsPanel: React.FC<StatsPanelProps> = ({ database }) => {
         ))}
       </div>
 
-      <div className="bg-white rounded-xl shadow-lg p-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-4">Taxa de Utilização</h3>
+      <div className="card-elegant p-6 hover-lift">
+        <h3 className="text-xl font-bold text-gradient mb-4">Taxa de Utilização</h3>
         <div className="flex items-center justify-between mb-2">
           <span className="text-sm font-medium text-gray-600">Convites utilizados</span>
           <span className="text-sm font-medium text-gray-900">{utilizationRate}%</span>
         </div>
         <div className="w-full bg-gray-200 rounded-full h-2">
           <div 
-            className="bg-gradient-to-r from-green-500 to-blue-500 h-2 rounded-full transition-all duration-300"
+            className="gradient-success h-2 rounded-full state-transition"
             style={{ width: `${utilizationRate}%` }}
           ></div>
         </div>
@@ -104,8 +104,8 @@ export const StatsPanel: React.FC<StatsPanelProps> = ({ database }) => {
       </div>
 
       {stats.totalConvidados === 0 && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 text-center">
-          <Ticket className="w-12 h-12 text-blue-500 mx-auto mb-4" />
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 text-center animate-bounce-custom">
+          <Ticket className="w-12 h-12 text-blue-500 mx-auto mb-4 animate-pulse-custom" />
           <h3 className="text-lg font-medium text-blue-900 mb-2">Nenhum convite gerado</h3>
           <p className="text-blue-700">
             Comece cadastrando formandos e depois gere convites para os convidados.

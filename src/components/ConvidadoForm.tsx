@@ -63,15 +63,15 @@ export const ConvidadoForm: React.FC<ConvidadoFormProps> = ({ formandos, onConvi
   const selectedFormando = formandos.find(f => f.id === formData.formandoId);
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="bg-white rounded-xl shadow-lg p-8">
+    <div className="max-w-4xl mx-auto animate-fade-in">
+      <div className="card-elegant p-8 hover-lift">
         <div className="flex items-center mb-6">
           <Ticket className="w-8 h-8 text-purple-600 mr-3" />
-          <h2 className="text-2xl font-bold text-gray-900">Gerar Convite</h2>
+          <h2 className="text-2xl font-bold text-gradient">Gerar Convite</h2>
         </div>
 
         {success && generatedConvidado && (
-          <div className="mb-6 bg-green-50 border border-green-200 rounded-lg p-6">
+          <div className="mb-6 bg-green-50 border border-green-200 rounded-lg p-6 animate-bounce-custom">
             <div className="flex items-start">
               <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5" />
               <div className="flex-1">
@@ -86,14 +86,16 @@ export const ConvidadoForm: React.FC<ConvidadoFormProps> = ({ formandos, onConvi
                   </div>
                   {qrCodeUrl && (
                     <div className="text-center">
-                      <img 
+                      <div className="qr-code-container">
+                        <img 
                         src={qrCodeUrl} 
                         alt="QR Code do convite" 
-                        className="w-32 h-32 mx-auto border rounded-lg shadow-sm" 
-                      />
+                        className="w-32 h-32 mx-auto border rounded-lg shadow-glow" 
+                        />
+                      </div>
                       <button
                         onClick={downloadQRCode}
-                        className="mt-2 text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-lg hover:bg-blue-200 transition-colors flex items-center mx-auto"
+                        className="mt-2 text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-lg hover:bg-blue-200 state-transition flex items-center mx-auto hover-scale"
                       >
                         <Download className="w-4 h-4 mr-1" />
                         Baixar QR
@@ -115,7 +117,7 @@ export const ConvidadoForm: React.FC<ConvidadoFormProps> = ({ formandos, onConvi
               name="formandoId"
               value={formData.formandoId}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+              className="input-elegant w-full px-4 py-3 focus-ring state-transition"
               required
             >
               <option value="">Selecione o formando...</option>
@@ -139,7 +141,7 @@ export const ConvidadoForm: React.FC<ConvidadoFormProps> = ({ formandos, onConvi
                   name="nome"
                   value={formData.nome}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                  className="input-elegant w-full pl-10 pr-4 focus-ring state-transition"
                   placeholder="Nome do convidado"
                   required
                 />
@@ -157,7 +159,7 @@ export const ConvidadoForm: React.FC<ConvidadoFormProps> = ({ formandos, onConvi
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                  className="input-elegant w-full pl-10 pr-4 focus-ring state-transition"
                   placeholder="email@exemplo.com"
                 />
               </div>
@@ -169,7 +171,7 @@ export const ConvidadoForm: React.FC<ConvidadoFormProps> = ({ formandos, onConvi
               Tipo de Convite
             </label>
             <div className="grid grid-cols-2 gap-4">
-              <label className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+              <label className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 state-transition hover-lift">
                 <input
                   type="radio"
                   name="tipoConvite"
@@ -183,7 +185,7 @@ export const ConvidadoForm: React.FC<ConvidadoFormProps> = ({ formandos, onConvi
                   <div className="text-sm text-gray-500">Valor cheio do ingresso</div>
                 </div>
               </label>
-              <label className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+              <label className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 state-transition hover-lift">
                 <input
                   type="radio"
                   name="tipoConvite"
@@ -203,7 +205,7 @@ export const ConvidadoForm: React.FC<ConvidadoFormProps> = ({ formandos, onConvi
           <button
             type="submit"
             disabled={formandos.length === 0}
-            className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 px-4 rounded-lg hover:from-purple-700 hover:to-blue-700 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-all font-medium flex items-center justify-center disabled:opacity-50"
+            className="btn-secondary w-full py-3 px-4 flex items-center justify-center disabled:opacity-50 hover-lift"
           >
             <QrCode className="w-5 h-5 mr-2" />
             Gerar Convite com QR Code

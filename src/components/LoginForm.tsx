@@ -26,13 +26,13 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
+    <div className="min-h-screen bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 flex items-center justify-center p-4 animate-fade-in">
+      <div className="card-elegant p-8 w-full max-w-md hover-lift">
         <div className="text-center mb-8">
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="gradient-primary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 animate-bounce-custom">
             <LogIn className="text-white text-2xl" />
           </div>
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="text-3xl font-bold text-gradient animate-slide-in">
             EventApp
           </h1>
           <p className="text-gray-600 mt-2">Sistema de Gerenciamento de Eventos</p>
@@ -49,7 +49,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="input-elegant w-full pl-10 pr-4 focus-ring state-transition"
                 placeholder="Digite seu usuário"
                 required
               />
@@ -66,7 +66,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="input-elegant w-full pl-10 pr-4 focus-ring state-transition"
                 placeholder="Digite sua senha"
                 required
               />
@@ -82,13 +82,13 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 rounded-lg hover:from-blue-700 hover:to-purple-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all font-medium disabled:opacity-50"
+            className="btn-primary w-full py-3 px-4 disabled:opacity-50 hover-lift"
           >
             {loading ? 'Entrando...' : 'Entrar'}
           </button>
         </form>
 
-        <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+        <div className="mt-6 p-4 bg-gray-50 rounded-lg animate-fade-in">
           <p className="text-sm text-gray-600 text-center">
             Credenciais de teste:<br />
             <strong>Usuário:</strong> admin<br />

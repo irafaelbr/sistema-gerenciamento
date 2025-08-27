@@ -119,11 +119,11 @@ export const QRScanner: React.FC<QRScannerProps> = ({ onValidate }) => {
   }
 
   return (
-    <div className="max-w-2xl mx-auto">
-      <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-        <div className="p-6 bg-gradient-to-r from-green-600 to-blue-600 text-white">
+    <div className="max-w-2xl mx-auto animate-fade-in">
+      <div className="card-elegant overflow-hidden hover-lift">
+        <div className="p-6 gradient-success text-white">
           <div className="flex items-center">
-            <Camera className="w-8 h-8 mr-3" />
+            <Camera className="w-8 h-8 mr-3 animate-pulse-custom" />
             <div>
               <h2 className="text-2xl font-bold">Scanner de QR Code</h2>
               <p className="opacity-90">Aponte a câmera para o QR Code do convite</p>
@@ -135,13 +135,13 @@ export const QRScanner: React.FC<QRScannerProps> = ({ onValidate }) => {
           <div className="relative mb-6">
             <video
               ref={videoRef}
-              className="w-full h-80 bg-gray-900 rounded-lg object-cover"
+              className="scanner-frame w-full h-80 bg-gray-900 object-cover scanner-overlay"
             />
             {!isScanning && (
               <div className="absolute inset-0 bg-gray-900 bg-opacity-50 rounded-lg flex items-center justify-center">
                 <button
                   onClick={startScanning}
-                  className="bg-white text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors flex items-center"
+                  className="bg-white text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 state-transition flex items-center hover-lift"
                 >
                   <Camera className="w-5 h-5 mr-2" />
                   Iniciar Scanner
@@ -154,7 +154,7 @@ export const QRScanner: React.FC<QRScannerProps> = ({ onValidate }) => {
             <div className="flex justify-center mb-6">
               <button
                 onClick={stopScanning}
-                className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors"
+                className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 state-transition hover-lift"
               >
                 Parar Scanner
               </button>
@@ -162,7 +162,7 @@ export const QRScanner: React.FC<QRScannerProps> = ({ onValidate }) => {
           )}
 
           {result && (
-            <div className={`border rounded-lg p-6 ${getResultBgColor()}`}>
+            <div className={`border rounded-lg p-6 ${getResultBgColor()} animate-bounce-custom`}>
               <div className="flex items-start">
                 {getResultIcon()}
                 <div className="ml-4 flex-1">

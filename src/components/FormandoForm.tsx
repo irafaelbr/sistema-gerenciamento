@@ -31,15 +31,15 @@ export const FormandoForm: React.FC<FormandoFormProps> = ({ onFormandoAdded }) =
   };
 
   return (
-    <div className="max-w-2xl mx-auto">
-      <div className="bg-white rounded-xl shadow-lg p-8">
+    <div className="max-w-2xl mx-auto animate-fade-in">
+      <div className="card-elegant p-8 hover-lift">
         <div className="flex items-center mb-6">
           <GraduationCap className="w-8 h-8 text-blue-600 mr-3" />
-          <h2 className="text-2xl font-bold text-gray-900">Cadastrar Formando</h2>
+          <h2 className="text-2xl font-bold text-gradient">Cadastrar Formando</h2>
         </div>
 
         {success && (
-          <div className="mb-6 bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg flex items-center">
+          <div className="mb-6 bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg flex items-center animate-bounce-custom">
             <CheckCircle className="w-5 h-5 mr-2" />
             Formando cadastrado com sucesso!
           </div>
@@ -58,7 +58,7 @@ export const FormandoForm: React.FC<FormandoFormProps> = ({ onFormandoAdded }) =
                   name="nome"
                   value={formData.nome}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="input-elegant w-full pl-10 pr-4 focus-ring state-transition"
                   placeholder="Digite o nome completo"
                   required
                 />
@@ -76,7 +76,7 @@ export const FormandoForm: React.FC<FormandoFormProps> = ({ onFormandoAdded }) =
                   name="curso"
                   value={formData.curso}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="input-elegant w-full pl-10 pr-4 focus-ring state-transition"
                   placeholder="Ex: Ciência da Computação"
                   required
                 />
@@ -94,7 +94,7 @@ export const FormandoForm: React.FC<FormandoFormProps> = ({ onFormandoAdded }) =
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="input-elegant w-full pl-10 pr-4 focus-ring state-transition"
                   placeholder="email@exemplo.com"
                   required
                 />
@@ -112,7 +112,7 @@ export const FormandoForm: React.FC<FormandoFormProps> = ({ onFormandoAdded }) =
                   name="telefone"
                   value={formData.telefone}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="input-elegant w-full pl-10 pr-4 focus-ring state-transition"
                   placeholder="(11) 99999-9999"
                   required
                 />
@@ -122,7 +122,7 @@ export const FormandoForm: React.FC<FormandoFormProps> = ({ onFormandoAdded }) =
 
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 rounded-lg hover:from-blue-700 hover:to-purple-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all font-medium flex items-center justify-center"
+            className="btn-primary w-full py-3 px-4 flex items-center justify-center hover-lift"
           >
             <Plus className="w-5 h-5 mr-2" />
             Cadastrar Formando
